@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Calculator</title>
+    <script>
+        function calculateArea() {
+            let continueCalculation = true;
+
+            while (continueCalculation) {
+                const shape = prompt("Enter the name of the shape (circle, triangle, square, rectangle, parallelogram, trapezium, ellipse):").toLowerCase();
+
+                let area;
+
+                switch (shape) {
+                    case 'circle':
+                        const radius = parseFloat(prompt("Enter the radius of the circle:"));
+                        if (!isNaN(radius) && radius > 0) {
+                            area = Math.PI * Math.pow(radius, 2);
+                        } else {
+                            alert("Invalid radius.");
+                            continue;
+                        }
+                        break;
+
+                    case 'triangle':
+                        const base = parseFloat(prompt("Enter the base of the triangle:"));
+                        const height = parseFloat(prompt("Enter the height of the triangle:"));
+                        if (!isNaN(base) && base > 0 && !isNaN(height) && height > 0) {
+                            area = 0.5 * base * height;
+                        } else {
+                            alert("Invalid base or height.");
+                            continue;
+                        }
+                        break;
+
+                    case 'square':
+                        const side = parseFloat(prompt("Enter the side length of the square:"));
+                        if (!isNaN(side) && side > 0) {
+                            area = Math.pow(side, 2);
+                        } else {
+                            alert("Invalid side length.");
+                            continue;
+                        }
+                        break;
+
+                    case 'rectangle':
+                        const length = parseFloat(prompt("Enter the length of the rectangle:"));
+                        const width = parseFloat(prompt("Enter the width of the rectangle:"));
+                        if (!isNaN(length) && length > 0 && !isNaN(width) && width > 0) {
+                            area = length * width;
+                        } else {
+                            alert("Invalid length or width.");
+                            continue;
+                        }
+                        break;
+
+                    case 'parallelogram':
+                        const baseP = parseFloat(prompt("Enter the base of the parallelogram:"));
+                        const heightP = parseFloat(prompt("Enter the height of the parallelogram:"));
+                        if (!isNaN(baseP) && baseP > 0 && !isNaN(heightP) && heightP > 0) {
+                            area = baseP * heightP;
+                        } else {
+                            alert("Invalid base or height.");
+                            continue;
+                        }
+                        break;
+
+                    case 'trapezium':
+                        const base1 = parseFloat(prompt("Enter the length of the first base of the trapezium:"));
+                        const base2 = parseFloat(prompt("Enter the length of the second base of the trapezium:"));
+                        const heightT = parseFloat(prompt("Enter the height of the trapezium:"));
+                        if (!isNaN(base1) && base1 > 0 && !isNaN(base2) && base2 > 0 && !isNaN(heightT) && heightT > 0) {
+                            area = 0.5 * (base1 + base2) * heightT;
+                        } else {
+                            alert("Invalid bases or height.");
+                            continue;
+                        }
+                        break;
+
+                    case 'ellipse':
+                        const majorAxis = parseFloat(prompt("Enter the length of the major axis of the ellipse:"));
+                        const minorAxis = parseFloat(prompt("Enter the length of the minor axis of the ellipse:"));
+                        if (!isNaN(majorAxis) && majorAxis > 0 && !isNaN(minorAxis) && minorAxis > 0) {
+                            area = Math.PI * majorAxis * minorAxis;
+                        } else {
+                            alert("Invalid major or minor axis.");
+                            continue;
+                        }
+                        break;
+
+                    default:
+                        alert("Invalid shape. Please try again.");
+                        continue;
+                }
+
+                alert(`The area of the ${shape} is: ${area}`);
+                continueCalculation = confirm("Do you want to calculate the area of another shape?");
+            }
+
+            alert("Area calculator ended.");
+        }
+    </script>
+</head>
+<body onload="calculateArea()">
+    <h1>Area Calculator</h1>
+    <p>Enter the shape and its dimensions to calculate the area.</p>
+</body>
+</html>
