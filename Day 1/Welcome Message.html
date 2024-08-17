@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Enter Your Information</h2>
+
+    <form>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName"><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName"><br><br>
+
+        <label for="birthYear">Birth Year:</label>
+        <input type="number" id="birthYear" min="1900" max="2024"><br><br>
+
+        <input type="button" value="Submit" onclick="submitForm()">
+    </form>
+
+    <p id="welcomeMessage"></p>
+
+    <script>
+        function submitForm() {
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const birthYear = parseInt(document.getElementById("birthYear").value);
+            const currentYear = new Date().getFullYear();
+            const age = currentYear - birthYear;
+
+            const fullName = `${firstName} ${lastName}`;
+            const welcomeMessage = `Welcome ${fullName}, you are ${age} years old.`;
+
+            document.getElementById("welcomeMessage").innerText = welcomeMessage;
+        }
+    </script>
+
+</body>
+
+</html>

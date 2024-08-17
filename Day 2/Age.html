@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function classifyAge(age) {
+            if (age >= 1 && age <= 15) {
+                return "Child";
+            }
+            else if (age >= 16 && age <= 50) {
+                return "Grown Up";
+            } else if (age > 50) {
+                return "Old";
+            } else {
+                return "Invalid";
+            }
+        }
+
+
+        let userAge = prompt("Please enter your age (positive number only):");
+
+        userAge = parseInt(userAge);
+
+        if (isNaN(userAge) || userAge <= 0) {
+            alert("Invalid input!");
+        }
+
+        let status = classifyAge(userAge);
+        alert(`You are classified as: ${status}`);
+
+    </script>
+
+</body>
+
+</html>

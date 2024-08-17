@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let contacts = [];
+
+        function addContact() {
+            let name = prompt("Enter contact name:");
+            let phoneNumber = prompt("Enter contact phone number:");
+
+            if (name && phoneNumber) {
+                let contact = { name: name, phone: phoneNumber };
+                contacts.push(contact);
+                alert("Added successfully!");
+            } else {
+                alert("Missing input.");
+            }
+        }
+
+        function searchContact() {
+            let searchTerm = prompt("Enter name to search:");
+
+            let foundContacts = contacts.filter(contact =>
+                contact.name.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+            if (foundContacts.length > 0) {
+                foundContacts.forEach(contact => {
+                    alert(`Name: ${contact.name}, Phone: ${contact.phone}`);
+                });
+            } else {
+                alert("No contact found.");
+            }
+        }
+
+        function phoneBookApp() {
+            while (true) {
+                let operation = prompt("Enter operation add or search:");
+
+                if (operation === "add") {
+                    addContact();
+                } else if (operation === "search") {
+                    searchContact();
+                } else {
+                    alert("Invalid operation! Please enter 'add', 'search', or 'exit'.");
+                }
+            }
+        }
+
+        phoneBookApp();
+    </script>
+
+</body>
+
+</html>

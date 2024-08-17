@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        function convertTo12Hour(hour) {
+            let period = "AM";
+            if (hour === 0) {
+                hour = 12;
+            } else if (hour === 12) {
+                period = "PM";
+            } else if (hour > 12) {
+                hour -= 12;
+                period = "PM";
+            }
+            return `${hour}${period}`;
+        }
+
+        let userHour = parseInt(prompt("Please enter an hour (0-23):"));
+
+        if (isNaN(userHour) || userHour < 0 || userHour > 23) {
+            alert("Invalid input! Please enter a number between 0 and 23.");
+        } else {
+            let convertedTime = convertTo12Hour(userHour);
+            alert(`The 12-hour format is: ${convertedTime}`);
+        }
+    </script>
+
+</body>
+
+</html>

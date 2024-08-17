@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        function countVowels(str) {
+            const vowels = "aeiouAEIOU";
+            let count = 0;
+
+            for (let char of str) {
+                if (vowels.includes(char)) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+
+        let userString = prompt("Please enter a string:");
+        let vowelCount = countVowels(userString);
+
+        alert(`The string "${userString}" contains ${vowelCount} vowels.`);
+
+    </script>
+</body>
+
+</html>

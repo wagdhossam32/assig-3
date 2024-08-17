@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Calculator</h2>
+
+    <label for="firstNumber">Enter First Number:</label>
+    <input type="number" id="firstNumber"><br><br>
+
+    <label for="operation">Enter Operation (sum, multi, subtract, division, moduls):</label>
+    <input type="text" id="operation"><br><br>
+
+    <label for="secondNumber">Enter Second Number:</label>
+    <input type="number" id="secondNumber"><br><br>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            const firstNumber = parseFloat(document.getElementById("firstNumber").value);
+            const secondNumber = parseFloat(document.getElementById("secondNumber").value);
+            const operation = document.getElementById("operation").value.toLowerCase();
+            let result;
+
+            switch (operation) {
+                case "sum":
+                    result = firstNumber + secondNumber;
+                    break;
+                case "multi":
+                    result = firstNumber * secondNumber;
+                    break;
+                case "subtract":
+                    result = firstNumber - secondNumber;
+                    break;
+                case "division":
+                    result = firstNumber / secondNumber;
+                    break;
+                case "moduls":
+                    result = firstNumber % secondNumber;
+                    break;
+                default:
+                    document.getElementById("result").innerText = "Invalid operation!";
+                    return;
+            }
+
+            document.getElementById("result").innerText = `The result is: ${result}`;
+        }
+    </script>
+
+</body>
+
+</html>

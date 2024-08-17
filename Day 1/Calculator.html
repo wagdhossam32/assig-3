@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Calculator - First Release</h2>
+    <p>This is the first release of our calculator. It currently only supports summation.</p>
+
+    <form>
+        <label for="firstNumber">Enter First Number:</label>
+        <input type="number" id="firstNumber"><br><br>
+
+        <label for="secondNumber">Enter Second Number:</label>
+        <input type="number" id="secondNumber"><br><br>
+
+        <input type="button" value="Calculate" onclick="calculateSum()">
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateSum() {
+            const firstNumber = parseFloat(document.getElementById("firstNumber").value);
+            const secondNumber = parseFloat(document.getElementById("secondNumber").value);
+            const sum = firstNumber + secondNumber;         // Calculate the sum
+
+            const resultMessage = `${firstNumber} + ${secondNumber} = ${sum}`;      // Create a message
+
+            document.getElementById("result").innerText = resultMessage;        // Fill the paragraph with the message
+        }
+    </script>
+
+</body>
+
+</html>
